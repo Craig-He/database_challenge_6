@@ -1,18 +1,18 @@
+from lib.recipe import *
+from lib.recipe_repository import RecipeRepository
 from lib.database_connection import DatabaseConnection
-from lib.artist_repository import ArtistRepository
 
+def main():
+    connection: DatabaseConnection = DatabaseConnection()
+    connection.connect()
+    connection.seed("seeds/recipes.sql")
 
-# Connect to the database
-connection = DatabaseConnection()
-connection.connect()
+    repo = RecipeRepository(connection)
 
-# Seed with some seed data
-connection.seed("seeds/music_library.sql")
+    results: list[Recipe] = repo.all()
 
-# Retrieve all artists
-artist_repository = ArtistRepository(connection)
-artists = artist_repository.all()
+    for recipe in results:
+        print("- " + str(recipe))
 
-# List them out
-for artist in artists:
-    print(artist)
+if __name__ == "__main__":
+    main()

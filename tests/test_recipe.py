@@ -15,4 +15,4 @@ def test_recipe_comparison():
 
 def test_recipe_add_string():
     recipe1 = Recipe(1, "Salad", 6, 5)
-    assert str(recipe1) == "Recipe(1, 'Salad', 6 , 5)"
+    assert str(recipe1) == "Recipe(1, 'Salad', 6, 5)"

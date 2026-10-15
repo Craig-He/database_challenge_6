@@ -13,7 +13,7 @@ CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     name TEXT,
     cooking_time INT,
-    rating INT, 
+    rating INT
 );
 
 -- Finally, we add any records that are needed for the tests to run
